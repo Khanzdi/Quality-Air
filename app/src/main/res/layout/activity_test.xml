@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:weightSum="7"
     android:orientation="vertical"
-    tools:context=".View.Test">
+    tools:context=".view.Test">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

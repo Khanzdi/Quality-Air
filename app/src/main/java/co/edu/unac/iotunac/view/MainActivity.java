@@ -1,9 +1,7 @@
-package co.edu.unac.iotunac.View;
+package co.edu.unac.iotunac.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.CheckBox;
-import android.widget.Toast;
 
 import co.edu.unac.iotunac.R;
 

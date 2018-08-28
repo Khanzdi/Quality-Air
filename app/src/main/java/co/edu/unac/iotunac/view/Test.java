@@ -1,30 +1,17 @@
-package co.edu.unac.iotunac.View;
+package co.edu.unac.iotunac.view;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import co.edu.unac.iotunac.Auth.LoginActivity;
+import co.edu.unac.iotunac.auth.LoginActivity;
 import co.edu.unac.iotunac.R;
-
-import static android.support.v7.widget.RecyclerView.*;
 
 public class Test extends AppCompatActivity {
     Button ok;
@@ -41,14 +28,12 @@ public class Test extends AppCompatActivity {
                             "presión arterial o problemas con el corazón?",
                     "7. ¿Existe alguna otra razón por la cual no debería participar en un programa de actividad física ?"};
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-       dialogo1.setTitle("¡Atención!");
+        dialogo1.setTitle("¡Atención!");
         dialogo1.setMessage(R.string.large_text);
         dialogo1.setCancelable(false);
         dialogo1.setPositiveButton("De acuerdo", new DialogInterface.OnClickListener() {
@@ -62,11 +47,9 @@ public class Test extends AppCompatActivity {
             }
         });
         dialogo1.show();
-
         LenguajeListAdapter adapter = new LenguajeListAdapter(this, questions);
         list = (ListView) findViewById(R.id.listView);
         list.setAdapter(adapter);
-
         ok = (Button) findViewById(R.id.ok);
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,14 +61,13 @@ public class Test extends AppCompatActivity {
                 dialogo1.setCancelable(false);
                 dialogo1.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogo1, int id) {
-                        Intent intent = new Intent(Test.this,LoginActivity.class);
+                        Intent intent = new Intent(Test.this, LoginActivity.class);
                         startActivity(intent);
-                        Toast t=Toast.makeText(Test.this,"Felicitaciones puedes iniciar sesión", Toast.LENGTH_SHORT);
+                        Toast t = Toast.makeText(Test.this, "Ahora puedes iniciar sesión", Toast.LENGTH_SHORT);
                         t.show();
                     }
                 });
                 dialogo1.show();
-
             }
         });
     }
